@@ -1,0 +1,139 @@
+/* 전체 바디 스타일: 역동적인 분위기 연출 */
+body {
+    font-family: 'Montserrat', sans-serif; /* 세련된 폰트 사용 추천 (HTML에 폰트 링크 추가 필요) */
+    /* 강렬한 배경 그라데이션 및 패턴 */
+    background: #1a1a2e; /* 깊은 남색 배경 */
+    background-image: radial-gradient(circle at 100% 150%, #2c0b4d 0%, #1a1a2e 50%, #0f0a28 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #fff; /* 밝은 글자색 */
+}
+
+/* 🎮 게임 컨테이너 스타일 (게임의 중심을 강조) */
+#gameContainer {
+    background: rgba(40, 40, 70, 0.9); /* 반투명하고 어두운 배경 */
+    backdrop-filter: blur(5px); /* 배경 블러 효과 (화려한 배경과 분리) */
+    padding: 30px;
+    border-radius: 25px; /* 모서리를 더욱 둥글게 */
+    /* 네온 샤인 효과 (가장자리 강조) */
+    box-shadow: 
+        0 0 15px rgba(100, 100, 255, 0.8), /* 파란색 네온 효과 */
+        0 0 30px rgba(255, 50, 200, 0.6), /* 마젠타색 추가 효과 */
+        0 15px 40px rgba(0, 0, 0, 0.5); /* 일반적인 깊은 그림자 */
+    border: 2px solid #6c5ce7; /* 테두리 강조 */
+    max-width: 480px; 
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🖼️ 캔버스 스타일 (미래적이고 화려한 느낌) */
+canvas {
+    border: 5px solid #00ff7f; /* 네온 그린 테두리 */
+    border-radius: 15px; 
+    display: block;
+    margin: 25px auto;
+    /* 캔버스 배경: 어둡고 미묘한 격자 패턴 (Grid Pattern) 추가 */
+    background: 
+        linear-gradient(90deg, #1f1f3e 1px, transparent 1px),
+        linear-gradient(#1f1f3e 1px, transparent 1px),
+        #121226; /* 매우 어두운 배경 */
+    background-size: 20px 20px;
+    /* 캔버스 내부 조명 효과 */
+    box-shadow: inset 0 0 20px rgba(0, 255, 127, 0.4), /* 네온 그린 내부 그림자 */
+                0 0 10px rgba(0, 255, 127, 0.8); /* 외부 발광 효과 */
+}
+
+/* 📊 점수 표시 영역 스타일 (HUD(Head-Up Display)처럼) */
+#scoreDisplay {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800; /* 매우 두꺼운 글씨 */
+    color: #ffffff; 
+    padding: 15px 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* 흰색 글자에 미세한 발광 효과 */
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 점수, 목숨, 타이머를 표시하는 span 요소 스타일 */
+#scoreDisplay span {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 20px;
+    min-width: 90px;
+    /* 텍스트 컨테이너에도 발광 효과 적용 */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 
+                inset 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* 약간의 투명 배경 */
+    color: #fff;
+    transition: transform 0.2s; /* 클릭 성공 시 시각적 피드백을 위한 준비 */
+}
+
+/* 각 점수 항목의 라벨을 구분하기 위한 스타일 */
+#scoreDisplay div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+#scoreDisplay div:before {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase; /* 대문자로 변환 */
+    letter-spacing: 1.5px;
+}
+
+/* 색상별 라벨 강조 */
+#scoreDisplay #score:before {
+    content: "SCORE";
+    color: #ffd700; /* 금색 */
+}
+#scoreDisplay #lives:before {
+    content: "LIVES";
+    color: #ff4d4d; /* 생명은 밝은 빨강 */
+}
+#scoreDisplay #timer:before {
+    content: "TIME";
+    color: #00ffff; /* 타이머는 청록색 */
+}
+
+/* 특정 값 강조 */
+#scoreDisplay #score {
+    background-color: rgba(255, 215, 0, 0.15);
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+#scoreDisplay #lives {
+    background-color: rgba(255, 77, 77, 0.15);
+    color: #ff4d4d;
+    text-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
+}
+
+#scoreDisplay #timer {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+/* 💥 보너스: 점수가 업데이트될 때 사용하면 좋은 애니메이션 클래스 (JavaScript에서 동적으로 추가/제거)  */
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); box-shadow: 0 0 20px #ffd700; }
+    100% { transform: scale(1); }
+}
+
+.score-increase {
+    animation: pulse 0.3s ease-out;
+}
